@@ -11,6 +11,17 @@ const FondoGradiante = styled.div`
   min-height:100vh;
 
 `
+
+const AppContainer = styled.div`
+  width : 1000px;
+  max-width:100%;
+  margin:0 auto;
+`
+
+const MainContainer = styled.main`
+  display:flex;
+  gap:24px;
+`
 function App() {
  
 
@@ -18,9 +29,13 @@ function App() {
     <>
       <FondoGradiante>
         <GlobalStyles/>
-        <Cabezera/>
-        <BarraLateral/>
-        <Banner texto="¡Bienvenido a la galeria de fotos más completa del espacio!" backgroundImage={banner}/>
+        <AppContainer>
+          <Cabezera/>
+          <MainContainer>
+            <BarraLateral/>
+            <Banner texto="¡Bienvenido a la galeria de fotos más completa del espacio!" backgroundImage={banner}/>
+          </MainContainer>
+        </AppContainer>
       </FondoGradiante>
     </>
   )
