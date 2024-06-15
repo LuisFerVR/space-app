@@ -4,6 +4,7 @@ import Cabezera from "./components/Cabezera"
 import BarraLateral from "./components/BarraLateral"
 import Banner from "./components/Banner"
 import banner from "./assets/banner.png"
+import Galeria from "./components/Galeria"
 
 const FondoGradiante = styled.div`
   background: linear-gradient(175deg,#041833 4.16%,#04244f 48%,#154580 96.76%);
@@ -22,6 +23,12 @@ const MainContainer = styled.main`
   display:flex;
   gap:24px;
 `
+
+const ContenidoGaleria = styled.section`
+  display:flex;
+  flex-direction:column;
+  flex-grow:1;
+`
 function App() {
  
 
@@ -33,7 +40,10 @@ function App() {
           <Cabezera/>
           <MainContainer>
             <BarraLateral/>
-            <Banner texto="¡Bienvenido a la galeria de fotos más completa del espacio!" backgroundImage={banner}/>
+            <ContenidoGaleria>
+              <Banner texto="¡Bienvenido a la galeria de fotos más completa del espacio!" backgroundImage={banner}/>
+              <Galeria/>
+            </ContenidoGaleria>
           </MainContainer>
         </AppContainer>
       </FondoGradiante>
