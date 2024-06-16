@@ -5,6 +5,10 @@ import BarraLateral from "./components/BarraLateral"
 import Banner from "./components/Banner"
 import banner from "./assets/banner.png"
 import Galeria from "./components/Galeria"
+import fotos from "../src/fotos.json"
+import { useState } from "react"
+import ModalZoom from "./components/ModalZoom"
+
 
 const FondoGradiante = styled.div`
   background: linear-gradient(175deg,#041833 4.16%,#04244f 48%,#154580 96.76%);
@@ -29,8 +33,10 @@ const ContenidoGaleria = styled.section`
   flex-direction:column;
   flex-grow:1;
 `
-function App() {
- 
+const App = () => {
+
+  const [fotosDeGaleria,setFotosDeGaleria] = useState(fotos);
+  const [fotoSeleccionada,setFotoSeleccionada] = useState(null);
 
   return (
     <>
@@ -42,10 +48,11 @@ function App() {
             <BarraLateral/>
             <ContenidoGaleria>
               <Banner texto="¡Bienvenido a la galeria de fotos más completa del espacio!" backgroundImage={banner}/>
-              <Galeria/>
+              <Galeria fotos={fotosDeGaleria} alSeleccionarFoto={foto=>setFotoSeleccionada(foto)}/>
             </ContenidoGaleria>
           </MainContainer>
         </AppContainer>
+        <ModalZoom foto={fotoSeleccionada}/>
       </FondoGradiante>
     </>
   )
