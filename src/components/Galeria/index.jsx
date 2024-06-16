@@ -17,7 +17,7 @@ const ImagenesContainer = styled.section`
     flex-wrap: wrap;
     gap: 24px;
 `;
-const Galeria = ({fotos=[],alSeleccionarFoto})=>{
+const Galeria = ({fotos=[],alSeleccionarFoto,alAlternarFavorito})=>{
     return (<>
         <Tag/>
         <GaleriaConatiner>
@@ -27,7 +27,8 @@ const Galeria = ({fotos=[],alSeleccionarFoto})=>{
                     {fotos.map(foto=><Imagen
                     alSolicitarZoom={alSeleccionarFoto}
                     key={foto.id} 
-                    foto={foto}/>
+                    foto={foto}
+                    alAlternarFavorito={alAlternarFavorito}/>
                     )}
                 </ImagenesContainer>
             </SeccionFluida>

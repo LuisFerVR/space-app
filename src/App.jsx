@@ -38,6 +38,22 @@ const App = () => {
   const [fotosDeGaleria,setFotosDeGaleria] = useState(fotos);
   const [fotoSeleccionada,setFotoSeleccionada] = useState(null);
 
+  const alAlternarFavorito = (foto) => {
+
+    if(fotoSeleccionada?.id === foto.id){
+      setFotoSeleccionada({
+        ...fotoSeleccionada,
+        favorita: !foto.favorita
+      })
+    }
+
+    setFotosDeGaleria(fotosDeGaleria.map(fotosDeGaleria=>{
+     return {
+       ...fotosDeGaleria,
+       favorita: fotosDeGaleria.id === foto.id ? !foto.favorita : fotosDeGaleria.favorita
+     }
+    }))
+   }
   return (
     <>
       <FondoGradiante>
@@ -48,11 +64,11 @@ const App = () => {
             <BarraLateral/>
             <ContenidoGaleria>
               <Banner texto="¡Bienvenido a la galeria de fotos más completa del espacio!" backgroundImage={banner}/>
-              <Galeria fotos={fotosDeGaleria} alSeleccionarFoto={foto=>setFotoSeleccionada(foto)}/>
+              <Galeria fotos={fotosDeGaleria} alSeleccionarFoto={foto=>setFotoSeleccionada(foto)} alAlternarFavorito={alAlternarFavorito}/>
             </ContenidoGaleria>
           </MainContainer>
         </AppContainer>
-        <ModalZoom foto={fotoSeleccionada}/>
+        <ModalZoom foto={fotoSeleccionada} alCerrar={()=>setFotoSeleccionada(null)} alAlternarFavorito={alAlternarFavorito}/>
       </FondoGradiante>
     </>
   )
