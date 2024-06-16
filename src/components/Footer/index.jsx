@@ -30,14 +30,15 @@ const Logo = styled.img`
     width: 100px;
     height: auto;
 `
+
 const Footer = () => {
     return (
         <ContenedorFooter>
             <RedesSociales>
                 <h2>Redes Sociales:</h2>
                 <RedesSocialesLogos>
-                    <p><a href="https://github.com/LuisFerVR"><Logo src="/public/iconos/linkedin.png"/></a></p>
-                    <p><a href="https://www.linkedin.com/in/vergararuizluisfernando/"><Logo src="/public/iconos/GitHub.png"/></a></p>
+                    <p><a href="https://www.linkedin.com/in/vergararuizluisfernando/"><Logo src="/public/iconos/linkedin.png"/></a></p>
+                    <p><a href="https://github.com/LuisFerVR"><Logo src="/public/iconos/GitHub.png"/></a></p>
                 </RedesSocialesLogos>
             </RedesSociales>
             <Autor>
