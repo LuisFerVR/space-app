@@ -8,6 +8,7 @@ import Galeria from "./components/Galeria"
 import fotos from "../src/fotos.json"
 import { useState } from "react"
 import ModalZoom from "./components/ModalZoom"
+import Footer from "./components/Footer"
 
 
 const FondoGradiante = styled.div`
@@ -69,6 +70,7 @@ const App = () => {
           </MainContainer>
         </AppContainer>
         <ModalZoom foto={fotoSeleccionada} alCerrar={()=>setFotoSeleccionada(null)} alAlternarFavorito={alAlternarFavorito}/>
+        <Footer/>
       </FondoGradiante>
     </>
   )
