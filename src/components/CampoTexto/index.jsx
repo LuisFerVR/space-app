@@ -29,11 +29,16 @@ const IconoLupa = styled.img`
     height: 38px;
 `;
 
-const CampoTexto = () => {
+const CampoTexto = ({setConsulta}) => {
+    
+  const cajaConsulta = useRef(null);
+
     return (
         <ContainerEstilizado>
-            <CampoTextoEstilizado placeholder="Busca una foto" />
-            <IconoLupa src={search} alt="ícono de lupa" />
+            <CampoTextoEstilizado ref={cajaConsulta} placeholder="Busca una foto"/>
+            <IconoLupa src={search} alt="ícono de lupa" onClick={()=>{
+                setConsulta(cajaConsulta.current.value);
+            }}/>
         </ContainerEstilizado>
     )
 }
