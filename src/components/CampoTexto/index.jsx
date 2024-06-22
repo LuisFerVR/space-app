@@ -1,5 +1,6 @@
 import {styled} from "styled-components";
 import search from "./search.png"
+import { useRef } from "react";
 
 const ContainerEstilizado = styled.div`
     position: relative;
