@@ -3,6 +3,8 @@ import Titulo from "../Titulo"
 import Populares from "./Populares"
 import Tag from "./Tags"
 import Imagen from "./Imagen"
+import { useContext } from "react"
+import { GlobalContext } from "../../context/GlobalContext"
 
 const GaleriaConatiner = styled.div`
     display:flex;
@@ -17,7 +19,8 @@ const ImagenesContainer = styled.section`
     flex-wrap: wrap;
     gap: 24px;
 `;
-const Galeria = ({fotos=[],alSeleccionarFoto,alAlternarFavorito,consulta})=>{
+const Galeria = ({fotos=[],alSeleccionarFoto,alAlternarFavorito})=>{
+    const {consulta} = useContext(GlobalContext);
     return (<>
         <Tag/>
         <GaleriaConatiner>

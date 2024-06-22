@@ -9,6 +9,7 @@ import fotos from "../src/fotos.json"
 import { useRef, useState } from "react"
 import ModalZoom from "./components/ModalZoom"
 import Footer from "./components/Footer"
+import GlobalContextProvider from "./context/GlobalContext"
 
 
 const FondoGradiante = styled.div`
@@ -57,19 +58,21 @@ const App = () => {
   return (
     <>
       <FondoGradiante>
-        <GlobalStyles/>
-        <AppContainer>
-          <Cabezera setConsulta={setConsulta}/>
-          <MainContainer>
-            <BarraLateral/>
-            <ContenidoGaleria>
-              <Banner texto="¡Bienvenido a la galeria de fotos más completa del espacio!" backgroundImage={banner}/>
-              <Galeria fotos={fotosDeGaleria} alSeleccionarFoto={foto=>setFotoSeleccionada(foto)} alAlternarFavorito={alAlternarFavorito} consulta={consulta}/>
-            </ContenidoGaleria>
-          </MainContainer>
-        </AppContainer>
-        <ModalZoom foto={fotoSeleccionada} alCerrar={()=>setFotoSeleccionada(null)} alAlternarFavorito={alAlternarFavorito}/>
-        <Footer/>
+        <GlobalContextProvider>
+          <GlobalStyles/>
+          <AppContainer>
+            <Cabezera/>
+            <MainContainer>
+              <BarraLateral/>
+              <ContenidoGaleria>
+                <Banner texto="¡Bienvenido a la galeria de fotos más completa del espacio!" backgroundImage={banner}/>
+                <Galeria fotos={fotosDeGaleria} alSeleccionarFoto={foto=>setFotoSeleccionada(foto)} alAlternarFavorito={alAlternarFavorito}/>
+              </ContenidoGaleria>
+            </MainContainer>
+          </AppContainer>
+          <ModalZoom foto={fotoSeleccionada} alCerrar={()=>setFotoSeleccionada(null)} alAlternarFavorito={alAlternarFavorito}/>
+          <Footer/>
+        </GlobalContextProvider>
       </FondoGradiante>
     </>
   )

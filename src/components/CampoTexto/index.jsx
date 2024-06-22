@@ -1,6 +1,7 @@
 import {styled} from "styled-components";
 import search from "./search.png"
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const ContainerEstilizado = styled.div`
     position: relative;
@@ -30,8 +31,8 @@ const IconoLupa = styled.img`
     height: 38px;
 `;
 
-const CampoTexto = ({setConsulta}) => {
-    
+const CampoTexto = () => {
+    const {setConsulta} = useContext(GlobalContext);
   const cajaConsulta = useRef(null);
 
     return (

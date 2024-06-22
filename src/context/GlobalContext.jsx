@@ -1,6 +1,6 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-const GlobalContext = createContext();
+export const GlobalContext = createContext();
 
 const GlobalContextProvider = ({children}) =>{
     
