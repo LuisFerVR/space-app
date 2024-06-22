@@ -38,7 +38,6 @@ const App = () => {
 
   const [fotosDeGaleria,setFotosDeGaleria] = useState(fotos);
   const [fotoSeleccionada,setFotoSeleccionada] = useState(null);
-  const [consulta,setConsulta] = useState('');
   const alAlternarFavorito = (foto) => {
 
     if(fotoSeleccionada?.id === foto.id){
